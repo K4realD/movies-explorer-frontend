@@ -1,5 +1,3 @@
-import Footer from "../Footer/Footer";
-
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
@@ -8,7 +6,7 @@ import "./Movies.css";
 function Movies() {
   return (
     <>
-      <section className="movies">
+      <main className="movies">
         <SearchForm />
         <MoviesCardList isSavedLocation={false}/>
         <div className="movies__more">
@@ -16,8 +14,7 @@ function Movies() {
             Ещё
           </button>
         </div>
-      </section>
-      <Footer />
+      </main>
     </>
   );
 }

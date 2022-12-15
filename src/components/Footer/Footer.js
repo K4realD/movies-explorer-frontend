@@ -1,10 +1,22 @@
+import { useLocation } from "react-router-dom";
+
 import Link from "../UI/Link/Link";
 
 import "./Footer.css";
 
 function Footer() {
+  const location = useLocation();
+
   return (
-    <footer className="footer">
+    <footer className={location.pathname === "/"
+    ? "footer"
+    : location.pathname === "/movies"
+    ? "footer"
+    : location.pathname === "/saved-movies"
+    ? "footer"
+    : location.pathname === "/profile"
+    ? "footer"
+    : "footer__auth"}>
       <p className="footer__info">
         Учебный проект Яндекс.Практикум х BeatFilm.
       </p>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import './App.css';
 
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Main from '../Main/Main';
@@ -38,6 +39,7 @@ function App() {
         <Route path="/signin" element={<Login />} />
         <Route path="*" element={<NotFound navigate={handleBack}/>} />
       </Routes>
+      <Footer />
       <NavPopup isOpen={isNavPopupOpen} closeNavPopup={handleNavPopupState} />
     </>
   );
