@@ -6,7 +6,7 @@ import "./MoviesCardList.css";
 
 function MoviesCardList({ isSavedLocation }) {
   return (
-    <ul className="movies__list">
+    <ul className="movies-list">
       {defaultMovies.map((movie) => {
         return !isSavedLocation ? (
           <MoviesCard

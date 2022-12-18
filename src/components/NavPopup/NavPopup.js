@@ -5,7 +5,7 @@ import "./NavPopup.css";
 function NavPopup({ isOpen, closeNavPopup }) {
   return (
     <div className={`popup ${isOpen && "popup_opened"}`}>
-      <nav className={`nav__container ${isOpen && "nav__container_opened"}`}>
+      <nav className={`nav ${isOpen && "nav_opened"}`}>
         <ul className="nav__list">
           <li className="nav__link">
             <Link
