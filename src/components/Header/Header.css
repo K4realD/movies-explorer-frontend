@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.header__main {
+  background-color: #073042;
+}
+
+.header__auth {
+  display: none;
+}
+
+@media screen and (max-width: 890px) {
+  .header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .header {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
