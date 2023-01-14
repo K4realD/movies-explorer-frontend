@@ -1,0 +1,32 @@
+.header__links-main {
+  max-width: 183px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__link {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}
+
+.header__link-login {
+  padding: 8px 20px 8px 20px;
+  background-color: #3ddc84;
+  color: #000000;
+  border-radius: 3px;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 675px) {
+  .header__link {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .header__link-login {
+    padding: 5px 12px 5px 12px;
+    margin-left: 14px;
+  }
+}
