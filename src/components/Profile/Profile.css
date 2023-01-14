@@ -58,6 +58,11 @@
   color: white;
 }
 
+.profile__submit-btn_inactive {
+  color: #B8B8B8;
+  pointer-events: none;
+}
+
 .profile__exit-btn {
   margin-top: 16px;
   margin-bottom: 269px;

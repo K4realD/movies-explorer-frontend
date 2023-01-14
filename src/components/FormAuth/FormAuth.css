@@ -45,6 +45,12 @@
 .auth__form-btn_reg {
   margin-top: 152px;
 }
+.auth__form-btn_inactive {
+  background-color: white;
+  color: #B8B8B8;
+  border: 1px solid #B8B8B8;
+  pointer-events: none;
+}
 
 .auth__nav {
   width: 100%;

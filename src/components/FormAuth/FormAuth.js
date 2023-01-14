@@ -3,7 +3,13 @@ import Link from "../UI/Link/Link";
 
 import "./FormAuth.css";
 
-function FormAuth({ children, isRegister }) {
+function FormAuth({
+  children,
+  isRegister,
+  handleSubmit,
+  isLoading,
+  isDisabled,
+}) {
   return (
     <section className="auth">
       <div className="auth__container">
@@ -11,10 +17,17 @@ function FormAuth({ children, isRegister }) {
         <h1 className="auth__title">
           {`${isRegister ? "Добро пожаловать!" : "Рады видеть!"}`}
         </h1>
-        <form className="auth__form">
+        <form className="auth__form" onSubmit={handleSubmit}>
           {children}
           <button
-            className={`auth__form-btn ${isRegister && "auth__form-btn_reg"}`}
+            disabled={isDisabled ? true : false}
+            className={
+              isDisabled || isLoading
+                ? `auth__form-btn auth__form-btn_inactive ${
+                    isRegister && "auth__form-btn_reg"
+                  }`
+                : `auth__form-btn ${isRegister && "auth__form-btn_reg"}`
+            }
             type="submit"
             aria-label={`${isRegister ? "Register" : "Login"}`}
           >
