@@ -22,12 +22,18 @@ function SavedMovies({
   };
 
   const handleShortMovies = () => {
-    setShortMovies(!isShortMovies);
+    if(localStorage.getItem('shortMovies') === 'false') {
+      localStorage.setItem('shortMovies', true);
+      setShortMovies(true); 
+    } else {
+      localStorage.setItem('shortMovies', false);
+      setShortMovies(false);
+    }
   };
 
   useEffect(() => {
     const movies = filterMovies(savedMovies, query);
-    setFilteredMovies(isShortMovies ? filterByDuration(movies) : movies);
+    setFilteredMovies(localStorage.getItem('shortMovies') === 'true' ? filterByDuration(movies) : movies);
   }, [savedMovies, isShortMovies, query, filterByDuration, filterMovies]);
 
   useEffect(() => {

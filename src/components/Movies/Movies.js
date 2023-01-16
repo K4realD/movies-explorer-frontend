@@ -33,10 +33,13 @@ function Movies({
   };
 
   const handleShortMovies = () => {
-    setShortMovies(!isShortMovies);
-    if (!isShortMovies) {
-      setFilteredMovies(filterByDuration(reqMovies));
+    if(localStorage.getItem('shortMovies') === 'false') {
+      localStorage.setItem('shortMovies', true);
+      setShortMovies(true);
+      setFilteredMovies(filterByDuration(reqMovies));  
     } else {
+      localStorage.setItem('shortMovies', false);
+      setShortMovies(false);
       setFilteredMovies(reqMovies);
     }
   };

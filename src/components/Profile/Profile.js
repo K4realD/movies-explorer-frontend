@@ -37,6 +37,7 @@ function Profile({ handleUpdateUser, signOut, isLoading }) {
     }
   }, [currentUser, resetForm]);
 
+
   return (
     <section className="profile">
       <h1 className="profile__greeting">Привет, {currentUser.name}</h1>

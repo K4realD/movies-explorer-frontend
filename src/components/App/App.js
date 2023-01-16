@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 
 import "./App.css";
@@ -27,6 +27,8 @@ import {
   deleteMovie,
 } from "../../utils/MainApi";
 
+import { SHORT_MOVIE }  from '../../utils/constants';
+
 function App() {
   const [isNavPopupOpen, setNavPopupOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
@@ -40,6 +42,8 @@ function App() {
 
   const navigate = useNavigate();
 
+  const location = useLocation();
+
   const handleBack = () => {
     navigate("/");
   };
@@ -49,6 +53,7 @@ function App() {
       const res = await getUserInfo();
       setCurrentUser(res);
       setLoggedIn(true);
+      navigate(location.pathname);
     } catch (err) {
       console.log(`Пользователь не залогинен ${err}`);
       setLoggedIn(false);
@@ -74,9 +79,10 @@ function App() {
       await login(email, password).then((res) => {
         setLoggedIn(true);
         setCurrentUser(res);
-        navigate("/movies");
         setLoading(false);
       });
+      await handleLoggedIn();
+      navigate("/movies");
     } catch (err) {
       console.log(`Авторизация не пройдена ${err}`);
     }
@@ -156,7 +162,7 @@ function App() {
   };
 
   const filterByDuration = (movies) => {
-    return movies.filter((movie) => movie.duration < 40);
+    return movies.filter((movie) => movie.duration < SHORT_MOVIE);
   };
 
   useEffect(() => {

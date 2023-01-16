@@ -9,7 +9,7 @@ function FilterCheckbox({ onFilter, isShortMovies }) {
         name="shorts"
         className="filter__input"
         onChange={onFilter}
-        checked={isShortMovies}
+        checked={JSON.parse(localStorage.getItem('shortMovies'))}
       />
       <span className="filter__checkbox"></span>
       <span className="filter__text">Короткометражки</span>

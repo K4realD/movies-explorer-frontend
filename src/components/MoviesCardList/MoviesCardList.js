@@ -3,6 +3,16 @@ import { useEffect, useState } from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import Preloader from "../Preloader/Preloader";
 
+import {
+  DISPLAY_WIDTH_LARGE,
+  DISPLAY_WIDTH_MEDIUM,
+  DISPLAY_WIDTH_SMALL,
+  DISPLAY_WIDTH_XL,
+  MOVIES_AMOUNT_LARGE,
+  MOVIES_AMOUNT_SMALL,
+  MOVIES_AMOUNT_MEDIUM,
+} from "../../utils/constants";
+
 import "./MoviesCardList.css";
 
 function MoviesCardList({
@@ -19,20 +29,20 @@ function MoviesCardList({
 
   const handleMoviesAmount = () => {
     const displayWidth = window.innerWidth;
-    if (displayWidth > 768) {
-      setMoviesAmount(12);
-    } else if (displayWidth > 480) {
-      setMoviesAmount(8);
-    } else if (displayWidth > 320) {
-      setMoviesAmount(5);
+    if (displayWidth > DISPLAY_WIDTH_LARGE) {
+      setMoviesAmount(MOVIES_AMOUNT_LARGE);
+    } else if (displayWidth > DISPLAY_WIDTH_MEDIUM) {
+      setMoviesAmount(MOVIES_AMOUNT_MEDIUM);
+    } else if (displayWidth > DISPLAY_WIDTH_SMALL) {
+      setMoviesAmount(MOVIES_AMOUNT_SMALL);
     }
   };
 
   const loadMoreMovies = () => {
     const displayWidth = window.innerWidth;
-    if (displayWidth > 1225) {
+    if (displayWidth > DISPLAY_WIDTH_XL) {
       setMoviesAmount(moviesAmount + 3);
-    } else if (displayWidth > 320) {
+    } else if (displayWidth > DISPLAY_WIDTH_SMALL) {
       setMoviesAmount(moviesAmount + 2);
     }
   };
