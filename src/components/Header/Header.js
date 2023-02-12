@@ -7,7 +7,7 @@ import Logo from "../UI/Logo/Logo";
 import NavMovies from "./NavMovies/NavMovies";
 import NavMain from "./NavMain/NavMain";
 
-function Header({ openNavPopup, isOpen }) {
+function Header({ openNavPopup, isOpen, isLoggedIn }) {
   const location = useLocation();
 
   return (
@@ -26,7 +26,7 @@ function Header({ openNavPopup, isOpen }) {
     >
       <Logo />
       {location.pathname === "/" ? (
-        <NavMain />
+        <NavMain isLoggedIn={isLoggedIn} openNavPopup={openNavPopup} isOpen={isOpen}/>
       ) : (
         <NavMovies openNavPopup={openNavPopup} isOpen={isOpen} />
       )}

@@ -1,6 +1,6 @@
 import "./AuthFormInput.css";
 
-function AuthFormInput({ text, isRegister, value, type, name, id }) {
+function AuthFormInput({ text, isRegister, value, type, name, id, errorText, handleChange, pattern }) {
   return (
     <label
       className="auth-form__input"
@@ -8,15 +8,18 @@ function AuthFormInput({ text, isRegister, value, type, name, id }) {
       {text}
       <input
         className={`auth-form__item ${isRegister && "auth-form__item_reg"}`}
-        defaultValue={value}
+        value={value}
         type={type}
         name={name}
         id={id}
         maxLength={`${name === "name" ? "30" : ""}`}
         minLength={`${name === "name" ? "2" : ""}`}
         placeholder=""
+        onChange={handleChange}
+        pattern={pattern}
+        required
       />
-      <span className="auth-form__error"></span>
+      <span className="auth-form__error">{errorText}</span>
     </label>
   );
 }

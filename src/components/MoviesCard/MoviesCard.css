@@ -1,5 +1,6 @@
 .movie-card {
   display: flex;
+  width: 364px;
   flex-direction: column;
   background-color: #222222;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
@@ -10,6 +11,17 @@
   align-items: center;
   justify-content: space-between;
   margin: 14px;
+}
+
+.movie-card__image {
+  width: 100%;
+  height: 100%;
+  max-width: 364px;
+  max-height: 203px;
+  margin: 0;
+  padding: 0;
+  object-fit: inherit;
+  object-position: center;
 }
 
 .movie-card__title {
@@ -63,3 +75,14 @@
   border: none;
 }
 
+@media screen and (max-width: 1255px) {
+  .movie-card {
+  width: 339px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .movie-card {
+  width: 300px;
+  }
+}
